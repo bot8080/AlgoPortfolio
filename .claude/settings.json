@@ -1,0 +1,66 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -m py_compile \"$CLAUDE_FILE_PATH\" 2>&1 || echo Syntax error detected"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python -m py_compile*)",
+      "Bash(python -m pytest*)",
+      "Bash(pytest*)",
+      "Bash(black*)",
+      "Bash(isort*)",
+      "Bash(flake8*)",
+      "Bash(pip install*)",
+      "Bash(pip list*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(mkdir*)",
+      "Bash(ls*)",
+      "Bash(cat*)"
+    ]
+  },
+  "project": {
+    "name": "AlgoPortfolio",
+    "description": "Telegram Mini App for stock portfolio analysis",
+    "phase": "Phase 2 - Portfolio Dashboard",
+    "conventions": {
+      "language": "python",
+      "version": "3.10+",
+      "style": "PEP 8",
+      "asyncPattern": true,
+      "typeHints": true,
+      "testing": "pytest"
+    }
+  },
+  "agents": {
+    "database-designer": {
+      "description": "Schema design, migrations, and data modeling",
+      "triggers": ["database", "schema", "model", "table", "migration"]
+    },
+    "feature-builder": {
+      "description": "End-to-end feature implementation",
+      "triggers": ["feature", "implement", "build", "create"]
+    },
+    "test-writer": {
+      "description": "Generate comprehensive test suites",
+      "triggers": ["test", "coverage", "testing"]
+    },
+    "code-reviewer": {
+      "description": "Quality and security review",
+      "triggers": ["review", "check", "audit", "quality"]
+    }
+  }
+}
