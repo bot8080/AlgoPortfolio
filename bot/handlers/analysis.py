@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 from services.market_data.yfinance_provider import YFinanceProvider
-from models.stock import StockPrice, StockInfo, AnalysisResult, Recommendation
+from models.stock import StockPrice, StockInfo
 from utils.exceptions import SymbolNotFoundError, DataFetchError
 from utils.logger import get_logger
 
@@ -116,7 +116,7 @@ async def analyze_command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
         logger.info(f"Analysis complete for {symbol} - ${price.price:.2f}")
 
-    except SymbolNotFoundError as e:
+    except SymbolNotFoundError:
         logger.warning(f"Symbol not found: {symbol}")
         await status_msg.edit_text(
             f"❌ <b>Symbol not found:</b> <code>{symbol}</code>\n\n"

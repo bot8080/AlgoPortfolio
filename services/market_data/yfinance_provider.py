@@ -44,7 +44,10 @@ class YFinanceProvider(MarketDataProvider):
                     if attempt < MAX_RETRIES - 1:
                         # Exponential backoff with jitter
                         delay = BASE_DELAY * (2 ** attempt) + random.uniform(0, 1)
-                        logger.warning(f"Rate limited, retrying in {delay:.1f}s (attempt {attempt + 1}/{MAX_RETRIES})")
+                        logger.warning(
+                            f"Rate limited, retrying in {delay:.1f}s "
+                            f"(attempt {attempt + 1}/{MAX_RETRIES})"
+                        )
                         await asyncio.sleep(delay)
                         continue
                 raise

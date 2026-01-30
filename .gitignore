@@ -76,7 +76,8 @@ logs/
 *.db
 *.sqlite
 *.sqlite3
-data/
+data/*
+!data/.gitkeep
 
 # ===========================================
 # OS Files

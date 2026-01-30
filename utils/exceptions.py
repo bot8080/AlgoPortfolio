@@ -59,3 +59,38 @@ class RateLimitError(AlgoPortfolioError):
         )
         self.provider = provider
         self.retry_after = retry_after
+
+
+class PortfolioNotFoundError(AlgoPortfolioError):
+    """Raised when a portfolio is not found for a user."""
+
+    def __init__(self, user_id: int):
+        super().__init__(
+            message=f"Portfolio not found for user {user_id}",
+            details="Use /portfolio to create one",
+        )
+        self.user_id = user_id
+
+
+class HoldingNotFoundError(AlgoPortfolioError):
+    """Raised when a holding is not found in a portfolio."""
+
+    def __init__(self, symbol: str, portfolio_id: int = None):
+        details = f"in portfolio {portfolio_id}" if portfolio_id else None
+        super().__init__(
+            message=f"Holding '{symbol}' not found",
+            details=details,
+        )
+        self.symbol = symbol
+        self.portfolio_id = portfolio_id
+
+
+class DatabaseError(AlgoPortfolioError):
+    """Raised when a database operation fails."""
+
+    def __init__(self, operation: str, reason: str = None):
+        super().__init__(
+            message=f"Database error during {operation}",
+            details=reason,
+        )
+        self.operation = operation

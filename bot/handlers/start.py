@@ -54,12 +54,20 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 /analyze &lt;symbol&gt; - Analyze a stock
   <i>Example: /analyze AAPL</i>
 
+<b>Portfolio:</b>
+/portfolio - View your holdings with P&amp;L
+/add &lt;symbol&gt; &lt;qty&gt; &lt;price&gt; - Add a stock
+  <i>Example: /add AAPL 10 150.50</i>
+/sell &lt;symbol&gt; &lt;qty&gt; &lt;price&gt; - Sell a stock
+  <i>Example: /sell AAPL 5 175.00</i>
+/history [limit] - Transaction history
+  <i>Example: /history 20</i>
+
 <b>General:</b>
 /start - Welcome message
 /help - Show this help
 
 <b>Coming Soon:</b>
-/portfolio - View your holdings
 /alert - Set price alerts
 /search - Search for stocks
 
