@@ -7,8 +7,8 @@
 | Phase | Status | Description |
 |-------|--------|-------------|
 | **Phase 1: MVP** | ✅ Complete | Basic bot with `/start`, `/help`, `/analyze` |
-| **Phase 2: Portfolio** | 🚧 Current | Database, holdings, P&L tracking |
-| **Phase 3: Mini App** | 📋 Planned | React frontend, TradingView charts |
+| **Phase 2: Portfolio** | ✅ Complete | Database, holdings, P&L tracking |
+| **Phase 3: Mini App** | 🚧 Next | React frontend, TradingView charts |
 | **Phase 4: Advanced** | 📋 Planned | Technical indicators, alerts |
 
 ---
@@ -100,13 +100,14 @@ Step 6: /review → /test → commit
 
 ### Phase 2 Checklist
 
-- [ ] Database setup (`/db-setup`)
-- [ ] Portfolio model & repository
-- [ ] `/portfolio` command - view holdings
-- [ ] `/add` command - add stock
-- [ ] `/sell` command - sell stock
-- [ ] `/history` command - transaction history
-- [ ] P&L calculations
+- [x] Database setup (`/db-setup`)
+- [x] Portfolio model & repository
+- [x] `/portfolio` command - view holdings
+- [x] `/add` command - add stock
+- [x] `/sell` command - sell stock
+- [x] `/history` command - transaction history
+- [x] P&L calculations
+- [x] Tests for all new code (156 tests passing)
 - [ ] Tests for all new code
 
 ---
@@ -452,17 +453,17 @@ pytest tests/ -v
 - [x] `/analyze` command
 - [x] Comprehensive tests (51 passing)
 
-### Phase 2: Portfolio 🚧
-- [ ] SQLite database setup
-- [ ] Portfolio, Holding, Transaction models
-- [ ] `/portfolio` command
-- [ ] `/add` command
-- [ ] `/sell` command
-- [ ] `/history` command
-- [ ] P&L calculations
-- [ ] Full test coverage
+### Phase 2: Portfolio ✅
+- [x] SQLite database setup with aiosqlite
+- [x] Portfolio, Holding, Transaction models
+- [x] `/portfolio` command with live P&L
+- [x] `/add` command
+- [x] `/sell` command
+- [x] `/history` command
+- [x] P&L calculations
+- [x] Full test coverage (156 tests)
 
-### Phase 3: Mini App 📋
+### Phase 3: Mini App 🚧
 - [ ] FastAPI backend
 - [ ] React frontend
 - [ ] TradingView charts
